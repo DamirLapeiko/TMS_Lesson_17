@@ -1,5 +1,6 @@
 package by.teachmeskills.lapeiko.homework18;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Homework18 {
@@ -15,7 +16,8 @@ public class Homework18 {
                         3. set
                         4. add
                         5. remove
-                        6. lastIndexOf"""
+                        6. lastIndexOf
+                        7. Iterator"""
         );
         while (scanner.hasNextInt()) {
             int taskNumber = scanner.nextInt();
@@ -61,11 +63,22 @@ public class Homework18 {
                     System.out.println("Last entry of this element (index) in linked list is: " +
                             linkedList.lastIndexOf(element));
                 }
+                case 7 -> {
+                    demoIterator(arrayList);
+                    demoIterator(linkedList);
+                }
                 default -> System.err.println("Task doesn't exist");
             }
             System.out.println("Array list: " + arrayList);
             System.out.println("Linked list: " + linkedList);
 
         }
+    }
+
+    private static void demoIterator(IntList list){
+        for (Integer element : list){
+            System.out.println(element + " ");
+        }
+        System.out.println();
     }
 }
