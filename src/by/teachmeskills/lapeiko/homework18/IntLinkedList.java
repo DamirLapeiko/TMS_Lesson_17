@@ -1,24 +1,32 @@
 package by.teachmeskills.lapeiko.homework18;
 
+import java.util.Iterator;
+
 public class IntLinkedList implements IntList {
     private IntListNode headNode;
+
     public IntLinkedList() {
         this.headNode = null;
     }
 
     @Override
+    public Iterator<Integer> iterator() {
+        return new IntLinkedNodeIterator(headNode);
+    }
+
+    @Override
     public String toString() {
-            if (headNode == null) {
-                return "[]";
-            }
-            StringBuilder sb = new StringBuilder("[");
-            IntListNode node = headNode;
-            while (node.getNextNode() != null) {
-                sb.append(node.getElement()).append(", ");
-                node = node.getNextNode();
-            }
-            return sb.append(node.getElement()).append("]").toString();
+        if (headNode == null) {
+            return "[]";
         }
+        StringBuilder sb = new StringBuilder("[");
+        IntListNode node = headNode;
+        while (node.getNextNode() != null) {
+            sb.append(node.getElement()).append(", ");
+            node = node.getNextNode();
+        }
+        return sb.append(node.getElement()).append("]").toString();
+    }
 
     private IntListNode getNode(int index) {
         if (index < 0) {
